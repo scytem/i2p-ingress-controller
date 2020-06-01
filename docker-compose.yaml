@@ -1,0 +1,15 @@
+version: "2.4"
+services: 
+  i2p-router:
+    build: .
+    ports:
+      - 4444:4444
+      - 4447:4447
+      - 8080:8080
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+  echoserver:
+    image: k8s.gcr.io/echoserver:1.10
